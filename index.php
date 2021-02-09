@@ -8,8 +8,10 @@ error_reporting(E_ALL);
 //Start a session
 session_start();
 
-//Require autoload file
+//Require files
 require_once('vendor/autoload.php');
+require_once('model/data-layer.php');
+
 
 //Instantiate Fat-Free
 $f3 = Base::instance();
@@ -26,7 +28,9 @@ $f3->route('GET /', function() {
 });
 
 //Define an order route
-$f3->route('GET /order', function() {
+$f3->route('GET /order', function($f3) {
+
+    $f3->set('meals', getMeals());
 
     //Display a view
     $view = new Template();
