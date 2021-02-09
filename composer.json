@@ -1,0 +1,13 @@
+{
+  "name": "328/food3",
+  "authors": [
+
+    {
+      "name": "Alisa Llavore",
+      "email": "allavore@mail.greenriver.edu"
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  }
+}
