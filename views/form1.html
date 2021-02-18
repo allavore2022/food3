@@ -1,6 +1,6 @@
 <include href="views/header.html"></include>
 <body>
-    <div class="container">
+<div class="container">
     <h1>Food Order</h1>
     <form method="post" action="#">
 
@@ -18,20 +18,22 @@
             <label class="col-sm-2 control-label">Select a meal</label>
             <div class="col-sm-4">
                 <repeat group="{{ @meals }}" value="{{ @meal }}">
-
                     <label><input type="radio"
                                   name="meal"
                                   id="{{ @meal }}"
-                                  value="{{ @meal }}"> {{ ucfirst(@meal) }}
+                                  value="{{ @meal }}"
+                        <check if="{{ @meal == @userMeal }}">checked</check>>
+                        {{ ucfirst(@meal) }}
                         </input></label><br>
-
                 </repeat>
-
+                <check if="{{ isset(@errors['meal']) }}">
+                    {{ @errors['meal'] }}
+                </check>
             </div>
         </div>
 
         <input type="submit" value="Next >>">
     </form>
-    </div>
+</div>
 </body>
 </html>
